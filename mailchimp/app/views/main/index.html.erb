@@ -1,0 +1,9 @@
+<h1>Sign up for my newsletter here</h1>
+
+<%= form_for @lead do |f| %> 
+  <%= f.text_field :name, placeholder: "Name" %>
+  <%= f.email_field :email, placeholder: "Email" %>
+  <%= f.text_field :device, placeholder: "Device" %>
+  <%= f.text_field :country, placeholder: "Country" %>
+  <%= f.submit %>
+<% end %>
