@@ -1,9 +1,13 @@
 <h1>Sign up for my newsletter here</h1>
 
-<%= form_for @lead do |f| %> 
-  <%= f.text_field :name, placeholder: "Name" %>
-  <%= f.email_field :email, placeholder: "Email" %>
-  <%= f.text_field :device, placeholder: "Device" %>
-  <%= f.text_field :country, placeholder: "Country" %>
-  <%= f.submit %>
+<% if cookies[:saved_lead] %>
+  Thanks for signing up!
+<% else %>
+  <%= form_for @lead do |f| %> 
+    <%= f.text_field :name, placeholder: "Name" %>
+    <%= f.email_field :email, placeholder: "Email" %>
+    <%= f.select :device, ["iPhone", "Android"], prompt: "Choose Your Device" %>
+    <%= f.text_field :country, placeholder: "Country" %>
+    <%= f.submit %>
+  <% end %>
 <% end %>
